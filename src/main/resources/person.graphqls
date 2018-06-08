@@ -1,0 +1,55 @@
+schema{
+
+	query : Query
+ 	mutation: Mutation
+}
+
+
+type Mutation{
+
+	agregarPersona(nombre: String, salario: Int, marca: MarcaInput) : Persona
+	agregarMarca(nombre: String) : Marca
+	agregarAficion(nombre: String) : Aficiones
+}
+
+type Query{
+
+	personas: [Persona]
+	person(id: Int) : Persona
+	
+	marcas: [Marca]
+	marca(id: Int) : Marca
+	
+	aficiones: [Aficiones]
+	aficion(id: Int) : Aficiones
+	
+}
+
+type Aficiones{
+
+	id: Int!
+	nombre: String
+}
+
+type Persona {
+
+	id:Int!
+	nombre: String
+	salario: Int
+	marca : Marca
+	aficiones : [Aficiones]
+}
+
+type Marca {
+	
+	id:Int!
+	nombre: String
+
+}
+
+input MarcaInput{
+
+    nombre: String
+    
+}
+
